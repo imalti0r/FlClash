@@ -271,13 +271,7 @@ void main() {
     container.read(groupsProvider.notifier).update((_) => groups);
     container
         .read(delayDataSourceProvider.notifier)
-        .setDelay(
-          const Delay(
-            name: 'Leaf',
-            url: 'https://www.gstatic.com/generate_204',
-            value: 42,
-          ),
-        );
+        .setDelay(const Delay(name: 'Leaf', url: defaultTestUrl, value: 42));
 
     expect(container.read(selectedMapProvider), {'Selector': 'Leaf'});
     expect(container.read(unfoldSetProvider), {'Selector'});

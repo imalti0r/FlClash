@@ -617,5 +617,8 @@
   "authorize": "許可",
   "installedAppsPermissionRequired": "アプリ一覧の権限が必要です",
   "installedAppsPermissionDesc": "このシステムでは、許可するまでインストール済みアプリの一覧が提供されません。許可すると、アプリごとのプロキシを設定できます。",
-  "installedAppsPermissionDeniedMessage": "アプリ一覧の権限が拒否されたため、インストール済みアプリを取得できません。システム設定から手動で許可してください。"
+  "installedAppsPermissionDeniedMessage": "アプリ一覧の権限が拒否されたため、インストール済みアプリを取得できません。システム設定から手動で許可してください。",
+  "nodeFilter": "ノードフィルター",
+  "nodeFilterDesc": "名前が一致するノードだけを残します。スラッシュで囲むと正規表現になります（例: /HK|SG/）。",
+  "nodeFilterInvalid": "正規表現が無効です"
 }

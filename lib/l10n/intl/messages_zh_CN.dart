@@ -503,6 +503,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "noRecords": MessageLookupByLibrary.simpleMessage("暂无记录"),
     "noResolve": MessageLookupByLibrary.simpleMessage("不解析IP"),
     "noResolveHostname": MessageLookupByLibrary.simpleMessage("不解析主机名"),
+    "nodeFilter": MessageLookupByLibrary.simpleMessage("节点筛选"),
+    "nodeFilterDesc": MessageLookupByLibrary.simpleMessage(
+      "仅保留名称匹配的节点。用斜杠包裹可启用正则表达式，例如 /HK|SG/。",
+    ),
+    "nodeFilterInvalid": MessageLookupByLibrary.simpleMessage("正则表达式无效"),
     "none": MessageLookupByLibrary.simpleMessage("无"),
     "notSelectedTip": MessageLookupByLibrary.simpleMessage("当前代理组无法选中"),
     "nullProfileDesc": MessageLookupByLibrary.simpleMessage("没有配置文件,请先添加配置文件"),

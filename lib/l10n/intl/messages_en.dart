@@ -708,6 +708,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "noResolveHostname": MessageLookupByLibrary.simpleMessage(
       "Don\'t resolve hostname",
     ),
+    "nodeFilter": MessageLookupByLibrary.simpleMessage("Node filter"),
+    "nodeFilterDesc": MessageLookupByLibrary.simpleMessage(
+      "Keep only the nodes whose name matches. Wrap the pattern in slashes for a regular expression, e.g. /HK|SG/.",
+    ),
+    "nodeFilterInvalid": MessageLookupByLibrary.simpleMessage(
+      "Invalid regular expression",
+    ),
     "none": MessageLookupByLibrary.simpleMessage("None"),
     "notSelectedTip": MessageLookupByLibrary.simpleMessage(
       "The current proxy group cannot be selected",

@@ -726,6 +726,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "noResolveHostname": MessageLookupByLibrary.simpleMessage(
       "Не разрешать имя хоста",
     ),
+    "nodeFilter": MessageLookupByLibrary.simpleMessage("Фильтр узлов"),
+    "nodeFilterDesc": MessageLookupByLibrary.simpleMessage(
+      "Оставить только узлы, имя которых совпадает. Заключите шаблон в слэши для регулярного выражения, например /HK|SG/.",
+    ),
+    "nodeFilterInvalid": MessageLookupByLibrary.simpleMessage(
+      "Недопустимое регулярное выражение",
+    ),
     "none": MessageLookupByLibrary.simpleMessage("Нет"),
     "notSelectedTip": MessageLookupByLibrary.simpleMessage(
       "Текущую группу прокси нельзя выбрать",

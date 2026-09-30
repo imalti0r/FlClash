@@ -617,5 +617,8 @@
   "authorize": "授权",
   "installedAppsPermissionRequired": "需要读取应用列表权限",
   "installedAppsPermissionDesc": "当前系统在授权前不会提供已安装的应用列表，授权后即可配置分应用代理。",
-  "installedAppsPermissionDeniedMessage": "读取应用列表权限已被拒绝，无法获取已安装的应用。请前往系统设置手动开启。"
+  "installedAppsPermissionDeniedMessage": "读取应用列表权限已被拒绝，无法获取已安装的应用。请前往系统设置手动开启。",
+  "nodeFilter": "节点筛选",
+  "nodeFilterDesc": "仅保留名称匹配的节点。用斜杠包裹可启用正则表达式，例如 /HK|SG/。",
+  "nodeFilterInvalid": "正则表达式无效"
 }

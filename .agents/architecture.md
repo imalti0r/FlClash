@@ -40,6 +40,29 @@ Key Go core files:
 - `core/lib.go`: CGO exports.
 - `core/server.go`: desktop socket/named-pipe client and framed message forwarding.
 
+## Profile Filtering
+
+A URL profile can carry a node-name filter (`Profile.filter`, edited in `EditProfileView`). `Profile.update` runs the
+downloaded bytes through `ProfileFilter.apply` (`lib/common/profile_filter.dart`) before `saveFile`, so the file on disk
+is the filtered subscription — every later reader, preview included, sees the filtered result, and a changed filter
+re-downloads exactly as a changed URL does.
+
+The filter rewrites the whole document, not just the `proxies` list, because mihomo resolves every name at load time and
+has no tolerance for a dangling one:
+
+- A `proxy-group` naming a removed proxy fails the config with `'<name>' not found` (`adapter/outboundgroup/parser.go`,
+  `getProxies`), so each group's `proxies` list is pruned.
+- A group left with neither `proxies` nor `use` fails with `` `use` or `proxies` missing `` unless it carries one of the
+  `include-all` flags, which a subscription may not. The group is therefore removed rather than emptied — and because
+  removing a group can empty the group that referenced it, the pruning repeats to a fixed point.
+- A `rule` whose target is a removed proxy or a removed group fails with `proxy [X] not found` (`config/config.go`,
+  `parseRules`). Such a rule keeps its match condition but is redirected to `DIRECT`, which mihomo always defines;
+  dropping the rule instead would change routing without the user seeing it.
+
+`validateConfig` does not catch any of this: `UnmarshalRawConfig` only deserializes, so a dangling name passes validation
+and fails later, when the tunnel is built. `core/filter_parse_verify_test.go` covers that gap by running the rewritten
+shape through mihomo's real `config.Parse`.
+
 ## Listener Exposure
 
 `_makeRealProfileTask` in `lib/common/task.dart` writes `mixed-port`, `allow-lan`, and `external-controller` into every

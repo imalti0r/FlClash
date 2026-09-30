@@ -36,6 +36,7 @@ export 'preferences.dart';
 export 'print.dart';
 export 'protocol.dart';
 export 'provider_reader.dart';
+export 'profile_filter.dart';
 export 'proxy.dart';
 export 'render.dart';
 export 'request.dart';

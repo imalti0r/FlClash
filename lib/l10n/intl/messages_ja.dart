@@ -579,6 +579,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "noRecords": MessageLookupByLibrary.simpleMessage("記録がありません"),
     "noResolve": MessageLookupByLibrary.simpleMessage("IPを解決しない"),
     "noResolveHostname": MessageLookupByLibrary.simpleMessage("ホスト名を解決しない"),
+    "nodeFilter": MessageLookupByLibrary.simpleMessage("ノードフィルター"),
+    "nodeFilterDesc": MessageLookupByLibrary.simpleMessage(
+      "名前が一致するノードだけを残します。スラッシュで囲むと正規表現になります（例: /HK|SG/）。",
+    ),
+    "nodeFilterInvalid": MessageLookupByLibrary.simpleMessage("正規表現が無効です"),
     "none": MessageLookupByLibrary.simpleMessage("なし"),
     "notSelectedTip": MessageLookupByLibrary.simpleMessage(
       "現在のプロキシグループは選択できません",

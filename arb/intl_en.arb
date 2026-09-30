@@ -617,5 +617,8 @@
   "authorize": "Authorize",
   "installedAppsPermissionRequired": "App list permission required",
   "installedAppsPermissionDesc": "This system hides the installed app list until the permission is granted. Authorize it to configure the per-app proxy.",
-  "installedAppsPermissionDeniedMessage": "The app list permission was denied, so installed apps cannot be listed. Please grant it manually in system settings."
+  "installedAppsPermissionDeniedMessage": "The app list permission was denied, so installed apps cannot be listed. Please grant it manually in system settings.",
+  "nodeFilter": "Node filter",
+  "nodeFilterDesc": "Keep only the nodes whose name matches. Wrap the pattern in slashes for a regular expression, e.g. /HK|SG/.",
+  "nodeFilterInvalid": "Invalid regular expression"
 }

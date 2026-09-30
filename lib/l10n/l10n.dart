@@ -5114,6 +5114,31 @@ class AppLocalizations {
       args: [],
     );
   }
+
+  /// `Node filter`
+  String get nodeFilter {
+    return Intl.message('Node filter', name: 'nodeFilter', desc: '', args: []);
+  }
+
+  /// `Keep only the nodes whose name matches. Wrap the pattern in slashes for a regular expression, e.g. /HK|SG/.`
+  String get nodeFilterDesc {
+    return Intl.message(
+      'Keep only the nodes whose name matches. Wrap the pattern in slashes for a regular expression, e.g. /HK|SG/.',
+      name: 'nodeFilterDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid regular expression`
+  String get nodeFilterInvalid {
+    return Intl.message(
+      'Invalid regular expression',
+      name: 'nodeFilterInvalid',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {
