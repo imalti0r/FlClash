@@ -777,5 +777,8 @@
   "large": "Large",
   "extraLarge": "Extra large",
   "switchProfile": "Switch profile",
-  "lastUpdated": "Last updated"
+  "lastUpdated": "Last updated",
+  "nodeFilter": "Node filter",
+  "nodeFilterDesc": "Keep only the nodes whose name matches. Wrap the pattern in slashes for a regular expression, e.g. /HK|SG/.",
+  "nodeFilterInvalid": "Invalid regular expression"
 }

@@ -960,6 +960,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "noSearchResults": MessageLookupByLibrary.simpleMessage(
       "No matching results",
     ),
+    "nodeFilter": MessageLookupByLibrary.simpleMessage("Node filter"),
+    "nodeFilterDesc": MessageLookupByLibrary.simpleMessage(
+      "Keep only the nodes whose name matches. Wrap the pattern in slashes for a regular expression, e.g. /HK|SG/.",
+    ),
+    "nodeFilterInvalid": MessageLookupByLibrary.simpleMessage(
+      "Invalid regular expression",
+    ),
     "nonTextProviderFile": MessageLookupByLibrary.simpleMessage(
       "This external resource is not a text file",
     ),

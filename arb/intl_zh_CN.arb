@@ -777,5 +777,8 @@
   "large": "大",
   "extraLarge": "超大",
   "switchProfile": "切换配置",
-  "lastUpdated": "上次更新"
+  "lastUpdated": "上次更新",
+  "nodeFilter": "节点筛选",
+  "nodeFilterDesc": "仅保留名称匹配的节点。用斜杠包裹可启用正则表达式，例如 /HK|SG/。",
+  "nodeFilterInvalid": "正则表达式无效"
 }

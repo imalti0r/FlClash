@@ -812,6 +812,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "noResolve": MessageLookupByLibrary.simpleMessage("IPを解決しない"),
     "noResolveHostname": MessageLookupByLibrary.simpleMessage("ホスト名を解決しない"),
     "noSearchResults": MessageLookupByLibrary.simpleMessage("一致する結果はありません"),
+    "nodeFilter": MessageLookupByLibrary.simpleMessage("ノードフィルター"),
+    "nodeFilterDesc": MessageLookupByLibrary.simpleMessage(
+      "名前が一致するノードだけを残します。スラッシュで囲むと正規表現になります（例: /HK|SG/）。",
+    ),
+    "nodeFilterInvalid": MessageLookupByLibrary.simpleMessage("正規表現が無効です"),
     "nonTextProviderFile": MessageLookupByLibrary.simpleMessage(
       "この外部リソースはテキストファイルではありません",
     ),

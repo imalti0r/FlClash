@@ -777,5 +777,8 @@
   "large": "大",
   "extraLarge": "特大",
   "switchProfile": "プロファイルを切り替え",
-  "lastUpdated": "最終更新"
+  "lastUpdated": "最終更新",
+  "nodeFilter": "ノードフィルター",
+  "nodeFilterDesc": "名前が一致するノードだけを残します。スラッシュで囲むと正規表現になります（例: /HK|SG/）。",
+  "nodeFilterInvalid": "正規表現が無効です"
 }

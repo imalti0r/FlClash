@@ -999,6 +999,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "noSearchResults": MessageLookupByLibrary.simpleMessage(
       "Ничего не найдено",
     ),
+    "nodeFilter": MessageLookupByLibrary.simpleMessage("Фильтр узлов"),
+    "nodeFilterDesc": MessageLookupByLibrary.simpleMessage(
+      "Оставить только узлы, имя которых совпадает. Заключите шаблон в слэши для регулярного выражения, например /HK|SG/.",
+    ),
+    "nodeFilterInvalid": MessageLookupByLibrary.simpleMessage(
+      "Недопустимое регулярное выражение",
+    ),
     "nonTextProviderFile": MessageLookupByLibrary.simpleMessage(
       "Этот внешний ресурс не является текстовым файлом",
     ),

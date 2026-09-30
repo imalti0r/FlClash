@@ -121,7 +121,7 @@ const double dialogCommonWidth = 300;
 const repository = 'chen08209/FlClash';
 const maxMobileWidth = 600;
 const maxLaptopWidth = 840;
-const defaultTestUrl = 'https://www.gstatic.com/generate_204';
+const defaultTestUrl = 'https://www.google.com';
 
 const stringListEquality = ListEquality<String>();
 const intListEquality = ListEquality<int>();

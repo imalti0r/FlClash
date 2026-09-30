@@ -33,6 +33,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
   late final TextEditingController _labelController;
   late final TextEditingController _urlController;
   late final TextEditingController _autoUpdateDurationController;
+  late final TextEditingController _filterController;
   late bool _autoUpdate;
   String? _rawText;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -45,6 +46,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
     super.initState();
     _labelController = TextEditingController(text: widget.profile.label);
     _urlController = TextEditingController(text: widget.profile.url);
+    _filterController = TextEditingController(text: widget.profile.filter);
     _autoUpdate = widget.profile.autoUpdate;
     _autoUpdateDurationController = TextEditingController(
       text: widget.profile.autoUpdateDuration.inMinutes.toString(),
@@ -67,6 +69,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
     var profile = widget.profile.copyWith(
       url: _urlController.text,
       label: _labelController.text,
+      filter: _filterController.text,
       autoUpdate: _autoUpdate,
       autoUpdateDuration: Duration(
         minutes: int.parse(_autoUpdateDurationController.text),
@@ -89,7 +92,11 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
       return;
     }
     final renameIn = [for (final item in rename.renameIn) item.id];
-    final hasUpdate = widget.profile.url != profile.url;
+    // A changed filter has to re-download and rewrite the profile file, the
+    // same as a changed URL does; the on-disk file is the filtered one.
+    final hasUpdate =
+        widget.profile.url != profile.url ||
+        widget.profile.filter != profile.filter;
     if (_fileData != null) {
       if (profile.type == ProfileType.url && _autoUpdate) {
         final res = await dialogs.showMessage(
@@ -228,6 +235,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
   void dispose() {
     _labelController.dispose();
     _urlController.dispose();
+    _filterController.dispose();
     _fileInfoNotifier.dispose();
     _autoUpdateDurationController.dispose();
     super.dispose();
@@ -246,6 +254,7 @@ class _EditProfileViewState extends ConsumerState<EditProfileView> {
       ),
       if (widget.profile.type == ProfileType.url) ...[
         _ProfileUrlField(controller: _urlController),
+        _ProfileFilterField(controller: _filterController),
         ListItem.toggle(
           title: Text(appLocalizations.autoUpdate),
           value: _autoUpdate,
@@ -360,6 +369,41 @@ class _ProfileUrlField extends StatelessWidget {
           }
           if (!value.isUrl) {
             return appLocalizations.profileUrlInvalidValidationDesc;
+          }
+          return null;
+        },
+      ),
+    );
+  }
+}
+
+class _ProfileFilterField extends StatelessWidget {
+  const _ProfileFilterField({required this.controller});
+
+  final TextEditingController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    final appLocalizations = context.appLocalizations;
+    return ListItem(
+      title: TextFormField(
+        textInputAction: TextInputAction.next,
+        controller: controller,
+        inputFormatters: TextInputLimits.limit(TextInputLimits.filter),
+        decoration: InputDecoration(
+          labelText: appLocalizations.nodeFilter,
+          helperText: appLocalizations.nodeFilterDesc,
+          helperMaxLines: 2,
+        ),
+        validator: (String? value) {
+          final pattern = value?.trim() ?? '';
+          if (pattern.isEmpty) {
+            return null;
+          }
+          try {
+            ProfileFilter.buildMatcher(pattern);
+          } on FormatException {
+            return appLocalizations.nodeFilterInvalid;
           }
           return null;
         },

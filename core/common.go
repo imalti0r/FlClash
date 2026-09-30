@@ -39,7 +39,7 @@ import (
 
 const (
 	delayTestConcurrency    = 50
-	defaultTestURL          = "https://www.gstatic.com/generate_204"
+	defaultTestURL          = "https://www.google.com"
 	defaultDelayTestTimeout = 5 * time.Second
 )
 
